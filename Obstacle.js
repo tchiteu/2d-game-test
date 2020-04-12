@@ -1,8 +1,8 @@
-function Ground() {
-  this.x = 300;
-  this.y = 500;
-  this.w = 200;
-  this.h = 10;
+function Obstacle(x, y, w, h, sprite = null) {
+  this.x = x;
+  this.y = y;
+  this.w = w;
+  this.h = h;
 
   this.show = () => {
     cx.fillStyle = '#fff'; 

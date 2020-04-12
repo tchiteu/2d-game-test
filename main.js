@@ -11,7 +11,7 @@ keyDown({
 }, 100);
 
 function main() {
-  ground = new Ground;
+  ground = new Obstacle(300, 500, 200, 10);
   player = new Player;
 
   loop();

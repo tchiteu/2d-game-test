@@ -1,6 +1,6 @@
 function Player() {
-  this.x = 380;
-  this.y = 50;
+  this.x = 300;
+  this.y = 200;
   this.w = 40;
   this.h = 80;
 
@@ -25,22 +25,30 @@ function Player() {
   }
 
   this.collision = (items) => {
-    let collision = false;
-
     this.x = Math.max(0, Math.min(cw - this.w, this.x));
     this.y = Math.max(0, Math.min(ch - this.h, this.y));
 
-
     items.map((item) => {
-      if (this.x < item.x + item.w &&
-        this.x + this.w > item.x &&
-        this.y < item.y + item.h &&
-        this.y + this.h > item.y) {
-         collision = true;
+      let distX = (this.x + this.w/2) - (item.x + item.w/2);
+      let distY = (this.y + this.h/2) - (item.y + item.h/2);
+
+      let sumW = (this.w + item.w)/2;
+      let sumH = (this.h + item.h)/2;
+
+      if(Math.abs(distX) < sumW && Math.abs(distY) < sumH) {
+        let overlapX = sumW - Math.abs(distX);
+        let overlapY = sumH - Math.abs(distY); 
+
+        if(overlapX > overlapY) {
+          this.y = (distY > 0) ? this.y + overlapY : this.y - overlapY; 
+        } else {
+          console.log(overlapX, overlapY)
+          this.x = (distX > 0) ? this.x + overlapX : this.x - overlapX; 
+        }
       }
+      
     })
 
-    return collision;
   }
 
   this.update = function() {
