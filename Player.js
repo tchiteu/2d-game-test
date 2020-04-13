@@ -1,4 +1,4 @@
-function Player() {
+function Player(sprite) {
   this.x = 300;
   this.y = 200;
   this.w = 20;
@@ -6,23 +6,24 @@ function Player() {
 
   this.xSpeed = 0;
   this.ySpeed = 4;
-  this.maxSpeed = 10;
+  this.maxSpeed = 5;
 
   this.move = (move) => {
     switch(move) {
       case 'right':
         if(this.xSpeed < this.maxSpeed) {
-          this.xSpeed += 5;
+          this.xSpeed += 3;
         }
       break;
 
       case 'left':
         if(this.xSpeed > -this.maxSpeed) {
-          this.xSpeed -= 5;
+          this.xSpeed -= 3;
         }
       break;
     }
   }
+
 
   this.collision = (items) => {
     this.x = Math.max(0, Math.min(cw - this.w, this.x));
@@ -57,12 +58,13 @@ function Player() {
     this.collision([ground])
 
     if(this.xSpeed != 0) {
-      this.xSpeed /= 1.1;
+      this.xSpeed /= 1.2;
     }
   }
 
   this.show = function() {
-    cx.fillStyle = '#fff';
-    cx.fillRect(this.x, this.y, this.w, this.h);
+    if(sprite.src) {
+      cx.drawImage(sprite, this.x, this.y);
+    }
   }
 }

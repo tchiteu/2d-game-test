@@ -12,16 +12,16 @@ keyDown({
 }, 100);
 
 function main() { 
-  player = new Player;
+  const playerSprite = new Image();
+  playerSprite.src = './sprites/player_0.png'
+  player = new Player(playerSprite);
 
   loop();
 }
 
 function drawWorld() {
   const groundSprite = new Image();
-  groundSprite.src = 'sprites/ground.png';
-  groundSprite.x = 100;
-
+  groundSprite.src = './sprites/ground.png';
   ground = new Obstacle(0, 290, 400, 10, groundSprite, 100);
   ground.show();
 }
