@@ -1,10 +1,10 @@
 <body>
-  <canvas  id="canvas" width="800" height="600"></canvas>
+  <canvas  id="canvas" width="400" height="300"></canvas>
 
   <script src="./keyboardController.js"></script>
 
   <script src="./Player.js"></script>
-  <script src="./Ground.js"></script>
+  <script src="./Obstacle.js"></script>
 
   <script src="./main.js"></script>
 </body>
@@ -20,5 +20,11 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid pink;
+    width: 800px;
+    height: 600px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
   }
 </style>
