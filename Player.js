@@ -1,8 +1,8 @@
 function Player() {
   this.x = 300;
   this.y = 200;
-  this.w = 40;
-  this.h = 80;
+  this.w = 20;
+  this.h = 40;
 
   this.xSpeed = 0;
   this.ySpeed = 4;
@@ -42,7 +42,6 @@ function Player() {
         if(overlapX > overlapY) {
           this.y = (distY > 0) ? this.y + overlapY : this.y - overlapY; 
         } else {
-          console.log(overlapX, overlapY)
           this.x = (distX > 0) ? this.x + overlapX : this.x - overlapX; 
         }
       }
