@@ -7,15 +7,12 @@ function Obstacle(x, y, w, h, sprite = null, spriteW) {
   this.show = () => {
     if(sprite.src) {
 
-      let cont = 0;
       let calcX = 0;
 
-      while(calcX < w) {
-        calcX = cont * spriteW;
+      for(cont = 0;calcX < w; cont++) {
         cx.drawImage(sprite, calcX, y);
-        cont++;
-      };
-
+        calcX = cont * spriteW;
+      }
     }
-  }
+ }
 }
